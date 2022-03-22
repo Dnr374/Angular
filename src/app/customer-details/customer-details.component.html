@@ -1,0 +1,93 @@
+<nav class="navbar navbar-light">
+<h2 class=" float-center"> Customer Details</h2>
+<div>
+<button class="btn btn-success" (click)="getCustomerDetails()"  > ListUsers</button>
+</div>
+</nav>
+<table class="table">
+    <thead>
+      <tr >
+        <th scope="col">CustomerId</th>
+        <th scope="col">CustomerName</th>
+        <th scope="col">PhoneNumber</th>
+        <th scope="col">Address1</th>
+        <th scope="col">Address2</th>
+        <th scope="col" >City</th>
+        <th scope="col">Pincode</th>
+        <th scope="col">State</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of empData">
+        <td>{{data.id }}</td>
+        <td>{{data.customerName}}</td>
+        <td>{{data.phoneNumber}}</td>
+        <td>{{data.address1}}</td>
+        <td>{{data.address2}}</td>
+        <td>{{data.city}}</td>
+        <td>{{data.pincode}}</td>
+        <td>{{data.state}}</td>
+        <td>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(data)"class="btn btn-primary">Edit</button>
+            <button type="button" (click)="deleteCustomer(data)" class="btn btn-danger mx-3">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+  <button class="btn btn-success text-right" data-bs-toggle="modal" data-bs-target="#exampleModal" > Add User</button>
+  </div>    
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Customer Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue" class="row g-3">
+          <div class="col-md-4">
+            <label  class="form-label">CustomerId</label>
+            <input type="number" formControlName="customerId" class="form-control" validator.required >
+          </div>
+          <div class="col-md-12">
+            <label for="inputPassword4" class="form-label">CustomerName</label>
+            <input type="text" formControlName="customerName" class="form-control" id="inputPassword4">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">PhoneNumber</label>
+            <input type="text" formControlName="phoneNumber" class="form-control" id="inputPassword4">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Address1</label>
+            <input type="text" formControlName="address1" class="form-control" id="inputAddress" placeholder="1234 Main St">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress2" class="form-label">Address2</label>
+            <input type="text" formControlName="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+          </div>
+          <div class="col-md-6">
+            <label for="inputCity" class="form-label">City</label>
+            <input type="text" formControlName="city" class="form-control" id="inputCity">
+          </div>
+          <div class="col-md-4">
+            <label for="inputState" class="form-label">State</label>
+            <input type="text" formControlName="state" class="form-control" id="inputState">
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Pincode</label>
+            <input type="text" formControlName="pincode" class="form-control" id="inputZip">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id='close' (click)="close()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="postCustomerDetails()" class="btn btn-primary" [disabled]="formValue.invalid">Add</button>
+        <button type="button" (click)="updateCustomerDetails()" class="btn btn-primary">update</button>
+
+      </div>
+    </div>
+  </div>
+</div>

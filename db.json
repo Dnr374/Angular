@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 121,
+      "customerName": "Rajinikanth",
+      "phoneNumber": "9029845263",
+      "address1": "Street6",
+      "address2": "BhavaniPuram",
+      "city": "Vijayawada",
+      "state": "AP",
+      "pinCode": ""
+    },
+    {
+      "id": 125,
+      "customerName": "Kiran",
+      "phoneNumber": "45890673965",
+      "address1": "Sai Nagar",
+      "address2": "Ameerpet",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "pinCode": "542133"
+    },
+    {
+      "id": 430,
+      "customerName": "Shivaji",
+      "phoneNumber": "6765646234",
+      "address1": "Street 11",
+      "address2": "RamojiNagar",
+      "city": "Vissannapeta",
+      "state": "AP",
+      "pinCode": "577882"
+    }
+  ]
+}
