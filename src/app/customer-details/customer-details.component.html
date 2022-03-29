@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light">
 <h2 class=" float-center"> Customer Details</h2>
 <div>
-<button class="btn btn-success" (click)="getCustomerDetails()"  > ListUsers</button>
+<button class="btn btn-success" (click)="getCustomerDetails()"  > ListCustomers</button>
 </div>
 </nav>
 <table class="table">
@@ -36,7 +36,7 @@
     </tbody>
   </table>
   <div class="text-center">
-  <button class="btn btn-success text-right" data-bs-toggle="modal" data-bs-target="#exampleModal" > Add User</button>
+  <button class="btn btn-success text-right" data-bs-toggle="modal" data-bs-target="#exampleModal" > Add Customer</button>
   </div>    
   <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -56,10 +56,16 @@
             <label for="inputPassword4" class="form-label">CustomerName</label>
             <input type="text" formControlName="customerName" class="form-control" id="inputPassword4">
           </div>
+          <div *ngIf="formValue.controls.customerName.invalid && (formValue.controls.customerName.dirty || formValue.controls.customerName.touched)"class="error">
+           <div *ngIf="formValue.controls.customerName.hasError('pattern')" class="text-danger">customerName allow only alphabates!!!</div>
+          <div *ngIf="formValue.controls.customerName.hasError('required')" class="text-danger">customerName is required!!!</div> </div>
           <div class="col-md-6">
             <label for="inputPassword4" class="form-label">PhoneNumber</label>
             <input type="text" formControlName="phoneNumber" class="form-control" id="inputPassword4">
           </div>
+          <div *ngIf="formValue.controls.phoneNumber.invalid && (formValue.controls.phoneNumber.dirty || formValue.controls.phoneNumber.touched)"class="error">
+           <div *ngIf="formValue.controls.phoneNumber.hasError('pattern')" class="text-danger">PhoneNumber allow only numerics!!!</div>
+          <div *ngIf="formValue.controls.phoneNumber.hasError('required')" class="text-danger">PhoneNumber is required!!!</div> </div>
           <div class="col-12">
             <label for="inputAddress" class="form-label">Address1</label>
             <input type="text" formControlName="address1" class="form-control" id="inputAddress" placeholder="1234 Main St">
@@ -80,6 +86,9 @@
             <label for="inputZip" class="form-label">Pincode</label>
             <input type="text" formControlName="pincode" class="form-control" id="inputZip">
           </div>
+          <div *ngIf="formValue.controls.pincode.invalid && (formValue.controls.pincode.dirty || formValue.controls.pincode.touched)"class="error">
+           <div *ngIf="formValue.controls.pincode.hasError('pattern')" class="text-danger">Pincode allow only numerics!!!</div>
+          <div *ngIf="formValue.controls.pincode.hasError('required')" class="text-danger">Pincode is required!!!</div> </div>
         </form>
       </div>
       <div class="modal-footer">

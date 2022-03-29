@@ -9,19 +9,19 @@ export class CustomerServiceService {
   constructor(private http:HttpClient) { }
 
   postCustomer(data:any){
-    return this.http.post("http://localhost:3000/posts",data)
+    return this.http.post("http://localhost:3000/customerDetails",data)
   }
 
   getCustomer(){
-    return this.http.get("http://localhost:3000/posts")
+    return this.http.get("http://localhost:3000/customerDetails")
   }
 
   updateCustomer(data:any,customerId:number){
-    return this.http.put<any>("http://localhost:3000/posts/"+customerId,data)
+    return this.http.put<any>("http://localhost:3000/customerDetails/"+customerId,data)
   }
 
   deleteCustomer(customerId:number){
-    return this.http.delete("http://localhost:3000/posts/"+customerId)
+    return this.http.delete("http://localhost:3000/customerDetails/"+customerId)
   }
 
 }
